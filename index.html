@@ -273,3 +273,39 @@ play();
 </script>
 </body>
 </html>
+<!-- Thẻ audio chứa file nhạc nền -->
+<audio id="bg-music" loop>
+  <source src="nhacnen.mp3" type="audio/mpeg">
+  Trình duyệt của bạn không hỗ trợ thẻ audio.
+</audio>
+
+<!-- Tùy chọn 1: Tạo một nút bật/tắt nhạc để người dùng chủ động bấm -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="music-btn" onclick="toggleMusic()" style="padding: 10px 15px; border-radius: 20px; border: none; background: #00ffff; cursor: pointer; font-weight: bold;">
+    🎵 Bật/Tắt Nhạc
+  </button>
+</div>
+
+<script>
+  var music = document.getElementById("bg-music");
+  var btn = document.getElementById("music-btn");
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      btn.innerText = "🔇 Tắt Nhạc";
+    } else {
+      music.pause();
+      btn.innerText = "🎵 Bật Nhạc";
+    }
+  }
+
+  // Tùy chọn 2: Cố gắng tự động phát nhạc ngay khi người dùng click bất kỳ đâu lần đầu tiên trên trang
+  document.body.addEventListener('click', function() {
+    if (music.paused) {
+      music.play().catch(function(error) {
+        console.log("Trình duyệt chặn autoplay: ", error);
+      });
+    }
+  }, { once: true });
+</script>
