@@ -271,43 +271,36 @@ function play(){
 replay.addEventListener('click',play);
 play();
 </script>
-<audio id="bg-music" loop>
-  <source src="nhacnen.mp3" type="audio/mpeg">
-</body>
-</html>
-<!-- Thẻ audio chứa file nhạc nền -->
-<audio id="bg-music" loop>
-  <source src="nhacnen.mp3" type="audio/mpeg">
-  Trình duyệt của bạn không hỗ trợ thẻ audio.
+
+<audio id="bg-music" loop preload="auto">
+  <source src="./nhacnen.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Tùy chọn 1: Tạo một nút bật/tắt nhạc để người dùng chủ động bấm -->
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <button id="music-btn" onclick="toggleMusic()" style="padding: 10px 15px; border-radius: 20px; border: none; background: #00ffff; cursor: pointer; font-weight: bold;">
-    🎵 Bật/Tắt Nhạc
-  </button>
-</div>
+<button id="music-btn" style="position:fixed;bottom:20px;right:16px;z-index:9999;padding:12px 18px;border-radius:30px;background:#001b2b;color:white;border:1px solid #2de9ff;">
+  🎵 Bật nhạc
+</button>
 
 <script>
-  var music = document.getElementById("bg-music");
-  var btn = document.getElementById("music-btn");
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("music-btn");
 
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-      btn.innerText = "🔇 Tắt Nhạc";
-    } else {
-      music.pause();
-      btn.innerText = "🎵 Bật Nhạc";
-    }
+function updateButton() {
+  btn.textContent = music.paused ? "🎵 Bật nhạc" : "🔇 Tắt nhạc";
+}
+
+music.play().then(updateButton).catch(updateButton);
+
+btn.addEventListener("click", function () {
+  if (music.paused) {
+    music.play().then(updateButton).catch(updateButton);
+  } else {
+    music.pause();
+    updateButton();
   }
+});
 
-  // Tùy chọn 2: Cố gắng tự động phát nhạc ngay khi người dùng click bất kỳ đâu lần đầu tiên trên trang
-  document.body.addEventListener('click', function() {
-    if (music.paused) {
-      music.play().catch(function(error) {
-        console.log("Trình duyệt chặn autoplay: ", error);
-      });
-    }
-  }, { once: true });
+music.addEventListener("play", updateButton);
+music.addEventListener("pause", updateButton);
 </script>
+</body>
+</html>
