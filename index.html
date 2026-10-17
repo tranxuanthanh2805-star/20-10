@@ -35,13 +35,15 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
 .L.on .couple{opacity:1}
 .couple svg{height:100%;width:auto;animation:neon 3.5s ease-in-out infinite}
 @keyframes neon{50%{opacity:.78}}
-/* night: cupid constellation */
-.cons{position:absolute;left:50%;bottom:24vh;width:min(92vw,560px);height:auto;aspect-ratio:260/160;transform:translateX(-50%);filter:drop-shadow(0 0 5px rgba(170,210,255,.5))}
-@media (min-aspect-ratio:1/1){.cons{left:auto;right:4vw;bottom:auto;top:14vh;width:min(46vw,520px);transform:none}}
+/* night: neon cupid */
+.cons{position:absolute;left:50%;bottom:24vh;width:min(94vw,580px);height:auto;aspect-ratio:330/190;transform:translateX(-50%)}
+@media (min-aspect-ratio:1/1){.cons{left:auto;right:4vw;bottom:auto;top:14vh;width:min(48vw,540px);transform:none}}
 .cf{animation:cfl 4.5s ease-in-out infinite alternate}
-@keyframes cfl{to{transform:translate(1.5px,-4px)}}
-.cl{stroke-dasharray:3 2.5;animation:dash 3s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-11}}
+@keyframes cfl{to{transform:translate(2px,-5px)}}
+.aw{animation:arw 3.2s ease-in-out infinite alternate}
+@keyframes arw{to{transform:translate(10px,-3px)}}
+.core{animation:flick 6s linear infinite}
+@keyframes flick{0%,90%,100%{opacity:1}92%{opacity:.55}94%{opacity:1}96%{opacity:.7}}
 .sp{animation:tw 2.6s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
 .crys{position:absolute;left:50%;bottom:15vh;width:12vmin;height:12vmin;margin-left:-6vmin;background:radial-gradient(circle,rgba(110,170,255,.45),transparent 65%);animation:fl 4s ease-in-out infinite}
@@ -63,10 +65,10 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
 .bf path{transform-origin:12px 9px;animation:fw .45s ease-in-out infinite alternate}
 @keyframes flt{50%{transform:translate(2vmin,-3vmin) rotate(8deg)}}
 @keyframes fw{to{transform:scaleX(.55)}}
-/* smile: heart with N + musical staff */
-.nh{position:absolute;right:3vmin;bottom:9vh;width:min(60vw,46vh);aspect-ratio:200/190;filter:drop-shadow(0 0 16px rgba(255,80,140,.65))}
-.nh svg{width:100%;height:100%;display:block;overflow:visible;transform-origin:50% 60%;animation:beat 2.4s ease-in-out infinite}
-@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.07)}24%{transform:scale(1)}36%{transform:scale(1.045)}50%{transform:scale(1)}}
+/* smile: sketch hearts + musical staff */
+.nh{position:absolute;right:2vmin;bottom:8vh;width:min(58vw,40vh);aspect-ratio:260/300;filter:drop-shadow(0 0 8px rgba(240,150,220,.5))}
+.nh svg{width:100%;height:100%;display:block;overflow:visible;transform-origin:50% 60%;animation:beat 2.8s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1) rotate(0)}12%{transform:scale(1.04) rotate(-.8deg)}24%{transform:scale(1)}36%{transform:scale(1.025) rotate(.8deg)}50%{transform:scale(1)}}
 .fh{position:absolute;color:#ffb3cf;text-shadow:0 0 8px #ff6fa8;font-size:clamp(12px,3.2vmin,22px);opacity:0;animation:up 5s ease-out infinite;font-family:"Segoe UI Symbol","Apple Symbols",sans-serif}
 .pf{position:absolute;right:0;bottom:2vh;width:34vmin}
 .dood{position:absolute;left:3vmin;top:70%;width:20vmin;opacity:.7}
@@ -142,7 +144,60 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
   </div>
   <div class="L bg-night" data-f="s3"></div>
   <div class="L" data-f="s3">
-    <svg class="cons" id="cons" viewBox="0 0 260 160" preserveAspectRatio="xMidYMid meet"></svg>
+    <!-- Neon cupid, soft single-line curves -->
+    <svg class="cons" viewBox="0 0 330 190" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <defs>
+        <g id="cu">
+          <!-- hair + face -->
+          <path d="M44 46C32 44 30 30 40 24C38 12 52 6 62 12C68 4 84 6 88 16C98 16 102 28 94 34C96 44 90 54 80 57C72 59 64 55 60 50C56 52 50 50 44 46Z"/>
+          <path d="M46 31C50 26 55 28 56 33M60 18C64 15 69 17 70 22M77 14C81 13 85 16 85 20"/>
+          <path d="M77 37Q82 40 88 36"/>
+          <path d="M91 40Q95 44 91 47"/>
+          <path d="M78 50Q83 53 88 49"/>
+          <path d="M57 35Q52 39 57 44"/>
+          <!-- wing -->
+          <path d="M62 72C48 60 28 56 8 60C4 64 10 67 14 66C10 71 18 73 24 71C22 77 31 77 36 75C37 81 45 81 50 78C55 80 60 80 66 83"/>
+          <path d="M16 63C30 64 44 68 58 76M26 69C36 70 46 73 56 79"/>
+          <!-- body -->
+          <path d="M58 56C50 70 52 88 62 100C60 110 66 118 78 122"/>
+          <path d="M82 66C92 74 97 86 94 98C98 108 98 116 94 122"/>
+          <path d="M62 100C74 106 86 104 94 98"/>
+          <!-- legs -->
+          <path d="M94 122C80 126 58 134 42 148C34 154 30 162 24 168C18 174 26 181 34 177C44 171 52 159 66 151C78 145 90 142 98 132"/>
+          <path d="M98 126C108 134 108 148 98 156C92 161 86 158 86 154"/>
+          <!-- arms -->
+          <path d="M82 66C100 58 120 54 139 50"/>
+          <path d="M86 78C104 72 122 66 139 60"/>
+          <path d="M139 50C147 48 150 58 143 61"/>
+          <path d="M72 72C80 82 94 78 98 62"/>
+          <!-- bow, string, arrow -->
+          <path d="M104 14C146 26 160 66 142 116"/>
+          <path d="M104 14C98 28 96 44 98 60C104 82 124 104 142 116"/>
+          <path d="M98 60C124 56 152 50 178 44"/>
+          <path d="M178 44C174 43 171 41 169 38M178 44C175 46 172 49 171 52"/>
+          <path d="M98 60L93 56M98 60L94 65"/>
+        </g>
+        <g id="ar">
+          <path d="M208 40C199 34 195 28 199 24C202 21 206 22 208 26C210 22 214 21 217 24C221 28 217 34 208 40Z"/>
+          <path d="M216 38C240 35 270 29 300 23"/>
+          <path d="M326 19C312 17 302 11 296 5C300 14 300 25 297 34C308 30 318 24 326 19Z"/>
+        </g>
+      </defs>
+      <g class="cf">
+        <use href="#cu" stroke="#ffe7a6" stroke-width="10" opacity=".13"/>
+        <use href="#cu" stroke="#ffefc4" stroke-width="5.5" opacity=".28"/>
+        <use class="core" href="#cu" stroke="#fffaf0" stroke-width="2.2"/>
+      </g>
+      <g class="aw">
+        <use href="#ar" stroke="#ffe7a6" stroke-width="10" opacity=".13"/>
+        <use href="#ar" stroke="#ffefc4" stroke-width="5.5" opacity=".28"/>
+        <use class="core" href="#ar" stroke="#fffaf0" stroke-width="2.2"/>
+      </g>
+      <g fill="#fff" stroke="none">
+        <circle class="sp" cx="20" cy="20" r="1.2"/><circle class="sp" style="animation-delay:-.6s" cx="150" cy="12" r="1"/><circle class="sp" style="animation-delay:-1.2s" cx="250" cy="70" r="1.2"/>
+        <circle class="sp" style="animation-delay:-1.8s" cx="200" cy="130" r="1"/><circle class="sp" style="animation-delay:-.3s" cx="300" cy="150" r="1.2"/><circle class="sp" style="animation-delay:-2s" cx="30" cy="150" r="1"/>
+      </g>
+    </svg>
     <div class="crys"><i class="rg"></i><i class="rg r2"></i><i class="dia"></i></div>
   </div>
   <div class="L bg-heal" data-f="s4"></div>
@@ -173,23 +228,54 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
       <path d="M45 40c-8-12-26-4-18 12 5 10 18 18 18 18s13-8 18-18c8-16-10-24-18-12z"/>
       <path d="M12 85C20 60 30 50 52 30"/><path d="M70 18l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
     </svg>
-    <!-- Heart with the letter N -->
+    <!-- Two sketchy hearts with letters (copied from your picture) -->
     <div class="nh">
-      <svg viewBox="0 0 200 190">
+      <svg viewBox="0 0 260 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <defs>
-          <linearGradient id="nhg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fb4"/><stop offset=".55" stop-color="#e8396f"/><stop offset="1" stop-color="#a81650"/></linearGradient>
-          <radialGradient id="nhi" cx=".35" cy=".25" r=".65"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <path id="hp" d="M50 86C14 58 2 40 6 24C10 8 30 2 44 14C48 18 50 22 50 24C50 22 52 18 56 14C70 2 90 8 94 24C98 40 86 58 50 86Z"/>
+          <path id="sh" d="M10 17C2 11 0 6 3 3C6 0 9 1 10 5C11 1 14 0 17 3C20 6 18 11 10 17Z"/>
         </defs>
-        <path d="M100 178C20 118 -4 70 28 36C52 12 88 22 100 52C112 22 148 12 172 36C204 70 180 118 100 178Z" fill="url(#nhg)" stroke="#ffd0e0" stroke-width="2.2" stroke-linejoin="round"/>
-        <path d="M100 178C20 118 -4 70 28 36C52 12 88 22 100 52C112 22 148 12 172 36C204 70 180 118 100 178Z" fill="url(#nhi)"/>
-        <path d="M44 56C50 42 68 36 82 46" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55" fill="none"/>
-        <text x="100" y="118" text-anchor="middle" font-size="92" font-weight="700" font-family="Georgia,'Times New Roman',serif" fill="none" stroke="#ffd0e4" stroke-width="10" stroke-linejoin="round" opacity=".28">N</text>
-        <text x="100" y="118" text-anchor="middle" font-size="92" font-weight="700" font-family="Georgia,'Times New Roman',serif" fill="#fff">N</text>
-        <path class="sp" transform="translate(12 30)" d="M0 -7L2 -2L7 0L2 2L0 7L-2 2L-7 0L-2 -2Z" fill="#fff"/>
-        <path class="sp" style="animation-delay:-1s" transform="translate(190 20)" d="M0 -7L2 -2L7 0L2 2L0 7L-2 2L-7 0L-2 -2Z" fill="#fff"/>
-        <path class="sp" style="animation-delay:-1.8s" transform="translate(178 150)" d="M0 -6L1.8 -1.8L6 0L1.8 1.8L0 6L-1.8 1.8L-6 0L-1.8 -1.8Z" fill="#ffe3ee"/>
+        <!-- burst lines -->
+        <path d="M12 56L30 66M30 36L38 52M54 26L58 44" stroke="#fff" stroke-width="7"/>
+        <!-- heart 1 (first letter) -->
+        <g id="h1">
+          <g transform="translate(88 100) rotate(-18) scale(1.1) translate(-50 -44)" stroke="#eaa8de">
+            <use href="#hp" stroke="#f3b8ea" stroke-width="9" opacity=".14"/>
+            <use href="#hp" stroke-width="2.6"/>
+            <use href="#hp" stroke-width="2.4" transform="translate(3 -2) rotate(3 50 44)"/>
+            <use href="#hp" stroke-width="2.2" transform="translate(-3 3) rotate(-3 50 44)"/>
+            <use href="#hp" stroke-width="1.8" transform="translate(5 2) rotate(-1.5 50 44)"/>
+          </g>
+          <text id="l1" x="90" y="118" transform="rotate(-8 90 104)" text-anchor="middle" font-size="50" font-weight="900" font-family="'Arial Black',Arial,Helvetica,sans-serif" fill="#fff" stroke="none">T</text>
+        </g>
+        <!-- heart 2 (second letter) -->
+        <g id="h2">
+          <g transform="translate(160 184) rotate(16) scale(1.22) translate(-50 -44)" stroke="#eaa8de">
+            <use href="#hp" stroke="#f3b8ea" stroke-width="9" opacity=".14"/>
+            <use href="#hp" stroke-width="2.6"/>
+            <use href="#hp" stroke-width="2.4" transform="translate(-3 -2) rotate(-3 50 44)"/>
+            <use href="#hp" stroke-width="2.2" transform="translate(3 3) rotate(3 50 44)"/>
+            <use href="#hp" stroke-width="1.8" transform="translate(-5 2) rotate(1.5 50 44)"/>
+          </g>
+          <text id="l2" x="162" y="204" transform="rotate(10 162 190)" text-anchor="middle" font-size="50" font-weight="900" font-style="italic" font-family="'Arial Black',Arial,Helvetica,sans-serif" fill="#fff" stroke="none">N</text>
+          <!-- bow -->
+          <g transform="translate(212 138) rotate(-12)">
+            <path d="M0 0C-12 -12 -26 -6 -22 4C-19 12 -8 8 0 0Z" fill="#f7bdd6" stroke="#fde3ef" stroke-width="1"/>
+            <path d="M0 0C12 -14 28 -8 24 4C20 14 8 9 0 0Z" fill="#f7bdd6" stroke="#fde3ef" stroke-width="1"/>
+            <path d="M-2 4C-6 16 -8 26 -14 36M2 4C8 16 12 24 20 32" stroke="#f7bdd6" stroke-width="5" opacity=".9"/>
+            <circle r="4.5" fill="#f2a6c6" stroke="#fde3ef" stroke-width="1"/>
+          </g>
+        </g>
+        <!-- doodle hearts -->
+        <g stroke="#fff" stroke-width="2">
+          <use href="#sh" transform="translate(190 36) scale(1.3)"/>
+          <path d="M178 38L184 40M178 48L184 47M216 36L222 33M217 46L223 46"/>
+          <use class="sp" href="#sh" transform="translate(148 76) scale(.95)"/>
+          <use class="sp" style="animation-delay:-1.2s" href="#sh" transform="translate(186 86) scale(1.15)"/>
+          <path d="M142 106Q146 100 152 103M150 96Q153 92 158 94"/>
+        </g>
       </svg>
-      <b class="fh" style="left:12%;bottom:70%">♥</b><b class="fh" style="left:50%;bottom:92%;animation-delay:-1.8s">♥</b><b class="fh" style="left:84%;bottom:68%;animation-delay:-3.2s">♥</b>
+      <b class="fh" style="left:8%;bottom:72%">♥</b><b class="fh" style="left:56%;bottom:94%;animation-delay:-1.8s">♥</b><b class="fh" style="left:88%;bottom:62%;animation-delay:-3.2s">♥</b>
     </div>
     <div class="rec">
       <b class="fn" style="left:18%">♪</b><b class="fn" style="left:40%;animation-delay:-1.7s">♫</b><b class="fn" style="left:62%;animation-delay:-3.1s">♪</b><b class="fn" style="left:82%;animation-delay:-.8s">♬</b>
@@ -217,8 +303,15 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
    Replace the placeholders with your own words (use \n for a line break). ===== */
 var LYRICS=["[lời bài hát 1]","[lời bài hát 2]","[lời bài hát 3]","[lời bài hát 4]","[lời bài hát 5]","[lời bài hát 6]"];
 
+/* ===== EDIT HERE: the letters inside the two hearts. Use "" to hide a heart. ===== */
+var LETTER_1="T",LETTER_2="N";
+
 var $=function(i){return document.getElementById(i)},R=function(a,b){return a+Math.random()*(b-a)};
 function f1(n){return +n.toFixed(1)}
+
+$('l1').textContent=LETTER_1;$('l2').textContent=LETTER_2;
+if(!LETTER_1)$('h1').style.display='none';
+if(!LETTER_2)$('h2').style.display='none';
 
 /* ---------- SVG builders ---------- */
 function flower(x,y,r,f,s){var h='';for(var i=0;i<5;i++){var a=i*1.2566;h+='<circle cx="'+f1(x+Math.cos(a)*r*.9)+'" cy="'+f1(y+Math.sin(a)*r*.9)+'" r="'+f1(r*.7)+'" fill="'+f+'" stroke="'+s+'" stroke-width=".6"/>'}return h+'<circle cx="'+x+'" cy="'+y+'" r="'+f1(r*.45)+'" fill="#ffe08a"/>'}
@@ -251,58 +344,6 @@ function build(){
   $('fieldsvg').setAttribute('viewBox','0 0 '+w+' 120');
   $('fieldsvg').innerHTML=d+'<g class="gs">'+g1+'</g>'+f+'<g class="gs g2">'+g2+'</g><g class="gs g3">'+g3+'</g>';
 }
-
-/* Cupid drawn as a constellation: stars joined by shimmering lines */
-(function(){
-  function H(x,y,s){return [[x,y+s],[x-s,y],[x-s*1.1,y-s*.6],[x-s*.5,y-s],[x,y-s*.45],[x+s*.5,y-s],[x+s*1.1,y-s*.6],[x+s,y],[x,y+s]].map(function(p){return[f1(p[0]),f1(p[1])]})}
-  var B='rgba(205,230,255,.85)',Y='rgba(255,226,122,.95)',K='rgba(255,165,200,.9)',BH=H(226,128,15);
-  var G=[
-    [B,[[100,44],[112,35],[125,44],[125,60],[112,69],[100,60],[100,44]]],           /* head */
-    [B,[[100,44],[95,37],[101,31],[109,33]]],                                         /* curls */
-    [B,[[125,44],[130,38]]],
-    [Y,[[113.3,19.7],[107.9,25.5],[94.5,29.9],[86.7,28.3],[92.1,22.5],[105.5,18.1],[113.3,19.7]]], /* halo */
-    [B,[[104,76],[112,72],[122,74]]],                                                 /* shoulders */
-    [B,[[112,69],[112,72],[108,86],[106,100]]],                                       /* spine */
-    [B,[[104,76],[99,90],[98,99]]],
-    [B,[[122,74],[127,88],[128,94]]],
-    [Y,[[98,99],[106,101],[118,101],[128,94]]],                                       /* loincloth */
-    [B,[[106,101],[82,108],[62,124]]],                                                /* legs */
-    [B,[[116,102],[96,120],[84,138]]],
-    [B,[[122,74],[146,70],[182,62]]],                                                 /* arms */
-    [B,[[106,78],[118,90],[136,68]]],
-    [Y,[[150,16],[172,24],[188,44],[190,66],[180,92],[150,108]]],                     /* bow */
-    [B,[[150,16],[136,68],[150,108]]],                                                /* string */
-    [Y,[[136,68],[172,60],[205,54]]],                                                 /* arrow */
-    [Y,[[136,68],[128,63]]],[Y,[[136,68],[128,73]]],[Y,[[143,66],[135,61]]],
-    [Y,[[104,68],[80,70],[60,50],[56,28],[78,36],[98,56],[104,68]]],                  /* wings */
-    [Y,[[108,64],[100,46],[106,32],[112,50]]],
-    [K,H(212,53,5)],                                                                  /* heart tip */
-    [K,[[216,57],[246,88]]],
-    [K,H(250,94,6)],[K,H(252,72,4)],[K,[[250,88],[252,76]]],                          /* little hearts */
-    [K,BH],                                                                           /* big heart */
-    [Y,[[186,152],[246,128]]],[Y,[[186,152],[179,149]]],[Y,[[186,152],[181,158]]],[Y,[[192,150],[185,147]]],
-    [B,[[14,106],[44,100]]],[B,[[14,106],[9,102]]],[B,[[14,106],[9,110]]],[B,[[44,100],[39,97]]],[B,[[44,100],[40,104]]]
-  ];
-  var s='<defs>'
-   +'<radialGradient id="sh"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient>'
-   +'<radialGradient id="ph"><stop offset="0" stop-color="#ffd0e4" stop-opacity=".9"/><stop offset="1" stop-color="#ff7fb0" stop-opacity="0"/></radialGradient>'
-   +'<radialGradient id="hg"><stop offset="0" stop-color="#ffb0a8" stop-opacity=".8"/><stop offset="1" stop-color="#ff7f8f" stop-opacity="0"/></radialGradient>'
-   +'<linearGradient id="rb" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffe9a0" stop-opacity=".15"/><stop offset=".5" stop-color="#ffd86a"/><stop offset="1" stop-color="#fff6cf"/></linearGradient></defs>';
-  ['M6 66C-2 26 42 2 86 16','M2 118C12 98 44 98 72 118C94 134 126 144 168 142'].forEach(function(d){
-    s+='<path d="'+d+'" stroke="#ffd86a" stroke-width="5" opacity=".15" fill="none"/><path d="'+d+'" stroke="url(#rb)" stroke-width="1.6" fill="none"/><path class="cl" d="'+d+'" stroke="#fff" stroke-width=".7" fill="none"/>'});
-  var seen={},nodes='',lines='';
-  G.forEach(function(g,i){
-    lines+='<path class="cl" style="animation-delay:-'+f1(R(0,3))+'s" d="M'+g[1].map(function(p){return p[0]+' '+p[1]}).join('L')+'" stroke="'+g[0]+'" stroke-width=".8" fill="none"/>';
-    g[1].forEach(function(p){var k=p[0]+','+p[1];if(seen[k])return;seen[k]=1;
-      nodes+='<circle class="sp" style="animation-delay:-'+f1(R(0,2.6))+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="3.4" fill="url(#'+(g[0]==K?'ph':'sh')+')"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r="1" fill="#fff"/>'});
-  });
-  s+='<g class="cf"><polygon points="'+BH.map(function(p){return p.join(',')}).join(' ')+'" fill="rgba(255,120,170,.16)"/>'
-   +'<circle class="sp" cx="226" cy="126" r="34" fill="url(#hg)"/>'+lines+nodes+'</g>';
-  s+='<g class="sp"><circle cx="238" cy="14" r="12" fill="url(#sh)"/><path d="M238 3L240 12L249 14L240 16L238 25L236 16L227 14L236 12Z" fill="#fff"/></g>';
-  [[20,20],[46,52],[176,10],[198,104],[170,130],[26,150],[250,146],[126,10]].forEach(function(p,i){
-    s+='<circle class="sp" style="animation-delay:-'+f1(i*.4)+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="1.1" fill="#fff"/>'});
-  $('cons').innerHTML=s;
-})();
 
 /* staff notes, plants, pink flowers */
 (function(){
@@ -475,4 +516,3 @@ music.addEventListener("pause", updateButton);
 </script>
 </body>
 </html>
-
