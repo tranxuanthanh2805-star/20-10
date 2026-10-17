@@ -31,12 +31,15 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
 .L.on .fl{transform:scale(1)}
 .fs{transform-box:fill-box;transform-origin:50% 100%;animation:fsw 3.5s ease-in-out infinite alternate}
 @keyframes fsw{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
-.couple{position:absolute;right:2vmin;bottom:8vh;height:min(46vh,95vw);opacity:0;transition:opacity 2.5s 2.5s;filter:drop-shadow(0 0 5px rgba(240,213,138,.55))}
+.couple{position:absolute;right:3vmin;bottom:4vh;height:min(44vh,88vw);opacity:0;transition:opacity 2.5s 2.5s;filter:drop-shadow(0 0 4px rgba(255,90,130,.85))}
 .L.on .couple{opacity:1}
-.couple svg{height:100%;width:auto;fill:rgba(10,6,4,.55);stroke:#f0d58a;stroke-width:1.4;stroke-linecap:round}
+.couple svg{height:100%;width:auto;animation:neon 3.5s ease-in-out infinite}
+@keyframes neon{50%{opacity:.78}}
 /* night */
-.cons{position:absolute;left:50%;bottom:24vh;width:min(92vw,560px);height:auto;aspect-ratio:250/140;transform:translateX(-50%)}
+.cons{position:absolute;left:50%;bottom:24vh;width:min(92vw,560px);height:auto;aspect-ratio:260/160;transform:translateX(-50%);filter:drop-shadow(0 0 6px rgba(255,214,120,.5))}
 @media (min-aspect-ratio:1/1){.cons{left:auto;right:4vw;bottom:auto;top:14vh;width:min(46vw,520px);transform:none}}
+.cf{animation:cfl 4.5s ease-in-out infinite alternate}
+@keyframes cfl{to{transform:translate(1.5px,-4px)}}
 .cl{stroke-dasharray:3 2.5;animation:dash 3s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-11}}
 .sp{animation:tw 2.6s ease-in-out infinite}
@@ -107,21 +110,107 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
   <div class="L bg-rose" data-f="s1"></div>
   <div class="L bg-gold" data-f="s2"></div>
   <div class="L" data-f="s2">
-    <div class="field"><div class="grow"><svg id="fieldsvg" class="sway" preserveAspectRatio="xMidYMax meet"></svg></div></div>
-    <div class="couple"><svg viewBox="0 0 200 330">
-      <path d="M118 70Q120 40 148 44Q172 52 164 150M122 80Q116 140 128 190" fill="none"/>
-      <circle cx="146" cy="72" r="13"/>
-      <path d="M134 90Q146 98 160 90L170 200L176 322L112 322L124 200Z"/>
-      <circle cx="170" cy="128" r="7"/>
-      <path d="M38 62Q75 14 112 62Q75 54 38 62Z"/>
-      <circle cx="75" cy="76" r="13"/>
-      <path d="M62 92Q75 100 88 92L100 200L112 322L38 322L50 200Z"/>
-      <path d="M64 100Q50 88 58 70" fill="none"/>
+    <!-- Umbrella couple (neon outline only) - placed BEFORE the grass so the grass hides their feet -->
+    <div class="couple"><svg viewBox="0 0 200 300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
+      <!-- dark soft fills (no outline) -->
+      <path d="M34 66C44 8 176 8 186 66Q167 77 148 66Q129 77 110 66Q91 77 72 66Q53 77 34 66Z" fill="rgba(60,5,20,.45)" stroke="none"/>
+      <path d="M62 300L64 174C60 152 62 142 74 137L108 137C120 142 120 152 116 174L116 300Z" fill="rgba(8,4,8,.6)" stroke="none"/>
+      <path d="M122 300L118 182C114 160 116 148 128 142L144 142C156 148 154 162 152 182L176 300Z" fill="rgba(8,4,8,.6)" stroke="none"/>
+      <!-- umbrella -->
+      <path d="M34 66C44 8 176 8 186 66" stroke="#ff4d6d"/>
+      <path d="M34 66Q53 77 72 66Q91 77 110 66Q129 77 148 66Q167 77 186 66" stroke="#ffe8ee" stroke-width="1.8"/>
+      <path d="M110 22V13" stroke="#ff4d6d"/>
+      <path d="M110 66V104" stroke="#ffd3dc" stroke-width="1.8"/>
+      <!-- man -->
+      <g stroke="#fff0e0">
+        <circle cx="90" cy="114" r="12"/>
+        <path d="M78 112C78 100 92 98 100 106" stroke-width="1.8"/>
+        <path d="M62 300L64 174C60 152 62 142 74 137L86 132M96 132L108 137C120 142 120 152 116 174L116 300"/>
+        <path d="M104 142Q116 124 110 104" stroke-width="1.8"/>
+      </g>
+      <!-- bag -->
+      <g stroke="#ff4d6d">
+        <ellipse cx="50" cy="196" rx="11" ry="15" transform="rotate(8 50 196)"/>
+        <path d="M70 140Q50 170 46 182" stroke-width="1.6"/>
+      </g>
+      <!-- woman -->
+      <g stroke="#ff4d6d">
+        <circle cx="127" cy="121" r="10.5"/>
+        <path d="M117 116C115 100 135 96 139 112C145 132 143 156 135 178"/>
+        <path d="M122 300L118 182C114 160 116 148 128 142L134 140M140 140L144 142C156 148 154 162 152 182L176 300"/>
+      </g>
     </svg></div>
+    <div class="field"><div class="grow"><svg id="fieldsvg" class="sway" preserveAspectRatio="xMidYMax meet"></svg></div></div>
   </div>
   <div class="L bg-night" data-f="s3"></div>
   <div class="L" data-f="s3">
-    <svg class="cons" id="cons" viewBox="0 0 250 140" preserveAspectRatio="xMidYMid meet"></svg>
+    <!-- Cupid -->
+    <svg class="cons" viewBox="0 0 260 160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <defs>
+        <radialGradient id="hg"><stop offset="0" stop-color="#ffb0a8" stop-opacity=".9"/><stop offset="1" stop-color="#ff7f8f" stop-opacity="0"/></radialGradient>
+        <linearGradient id="hf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a9a"/><stop offset="1" stop-color="#ff5f7e"/></linearGradient>
+        <linearGradient id="rb" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffe9a0" stop-opacity=".15"/><stop offset=".5" stop-color="#ffd86a"/><stop offset="1" stop-color="#fff6cf"/></linearGradient>
+        <radialGradient id="sh"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient>
+      </defs>
+      <!-- sparkle ribbons -->
+      <path d="M6 66C-2 26 42 2 86 16" stroke="#ffd86a" stroke-width="5" opacity=".18"/>
+      <path d="M6 66C-2 26 42 2 86 16" stroke="url(#rb)" stroke-width="1.8"/>
+      <path class="cl" d="M6 66C-2 26 42 2 86 16" stroke="#fff" stroke-width=".8"/>
+      <path d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="#ffd86a" stroke-width="5" opacity=".18"/>
+      <path d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="url(#rb)" stroke-width="1.8"/>
+      <path class="cl" d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="#fff" stroke-width=".8"/>
+      <!-- floating arrows -->
+      <g stroke="#ffe9b0" stroke-width="1.4">
+        <path d="M14 104L44 98M44 98L39 95M44 98L40 102M14 104L10 100M14 104L10 108M19 103L15 99M19 103L15 107"/>
+        <path d="M36 138L68 130M68 130L63 127M68 130L64 134M36 138L32 134M36 138L32 142M41 137L37 133M41 137L37 141"/>
+      </g>
+      <!-- cupid -->
+      <g class="cf">
+        <path d="M94 74C66 70 48 48 58 26C76 28 90 42 102 60Z" fill="#fff3d0" stroke="#ffd35c" stroke-width="1.6"/>
+        <path d="M62 32C72 36 84 48 92 62M60 42C72 46 82 56 90 66" stroke="#ffdc84" stroke-width="1"/>
+        <path d="M100 66C92 54 90 40 98 32C106 40 108 54 106 64Z" fill="#fff8e2" stroke="#ffd35c" stroke-width="1.4"/>
+        <g stroke="#e6a77c" stroke-width="11"><polyline points="98,100 70,108 58,124"/><polyline points="108,102 86,118 80,136"/></g>
+        <g stroke="#ffd9bb" stroke-width="8.6"><polyline points="98,100 70,108 58,124"/><polyline points="108,102 86,118 80,136"/></g>
+        <circle cx="58" cy="126" r="5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
+        <circle cx="80" cy="138" r="5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
+        <path d="M104 64C92 72 88 88 92 102L118 106C124 90 122 74 118 62Z" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
+        <path d="M90 96C100 90 120 92 126 102C122 114 104 116 90 108Z" fill="#fff0b8" stroke="#ffd35c" stroke-width="1.4"/>
+        <path d="M90 104C74 108 62 98 50 106" stroke="#ffe9a0" stroke-width="3"/>
+        <path d="M114 70L180 62" stroke="#e6a77c" stroke-width="9"/><path d="M114 70L180 62" stroke="#ffd9bb" stroke-width="7"/>
+        <polyline points="102,76 116,88 136,68" stroke="#e6a77c" stroke-width="8.5"/><polyline points="102,76 116,88 136,68" stroke="#ffd9bb" stroke-width="6.5"/>
+        <circle cx="112" cy="52" r="15" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
+        <g fill="#ffc84a" stroke="#f0a830" stroke-width="1"><circle cx="101" cy="41" r="7"/><circle cx="111" cy="36" r="7.5"/><circle cx="122" cy="39" r="6.5"/><circle cx="96" cy="48" r="5.5"/><circle cx="99" cy="55" r="4.5"/></g>
+        <path d="M118 51q3 -3 6 0" stroke="#7a4a2a" stroke-width="1.6"/>
+        <path d="M118 60q4 4 8 0" stroke="#c4604a" stroke-width="1.4"/>
+        <ellipse cx="117" cy="58" rx="3" ry="2" fill="#ff9aa0" opacity=".6" stroke="none"/>
+        <ellipse cx="94" cy="22" rx="15" ry="4.5" transform="rotate(-18 94 22)" stroke="#ffe27a" stroke-width="5" opacity=".25"/>
+        <ellipse cx="94" cy="22" rx="15" ry="4.5" transform="rotate(-18 94 22)" stroke="#ffe27a" stroke-width="2.4"/>
+        <path d="M150 16C196 34 196 90 150 108" stroke="#ffd35c" stroke-width="5" opacity=".25"/>
+        <path d="M150 16C196 34 196 90 150 108" stroke="#ffe27a" stroke-width="2.6"/>
+        <polyline points="150,16 136,66 150,108" stroke="#fff3c4" stroke-width="1"/>
+        <path d="M136 66L206 54" stroke="#fff3c4" stroke-width="1.6"/>
+        <path d="M136 66l-6 -4M136 66l-6 5M142 65l-6 -4M142 65l-6 5" stroke="#ffd35c" stroke-width="1.1"/>
+        <circle cx="182" cy="62" r="4.5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1"/>
+        <circle cx="212" cy="53" r="10" fill="url(#hg)" stroke="none" class="sp"/>
+        <path transform="translate(212 53) rotate(-80) scale(1.25)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" fill="#ff8aa0" stroke="#ffc2cc" stroke-width=".8"/>
+      </g>
+      <!-- big glowing heart + linked small hearts -->
+      <circle cx="226" cy="126" r="34" fill="url(#hg)" stroke="none" class="sp"/>
+      <path transform="translate(226 126) scale(3.2)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" fill="url(#hf)" stroke="#ffd0d0" stroke-width=".5"/>
+      <path d="M213 118q2 -6 8 -6" stroke="#fff" stroke-width="2" opacity=".7"/>
+      <path d="M186 150L246 128" stroke="#fff3c4" stroke-width="1.6"/>
+      <path d="M186 150l-6 -3M186 150l-4 5M192 148l-6 -3M192 148l-4 5M246 128l-6 -1M246 128l-3 5" stroke="#ffd35c" stroke-width="1.2"/>
+      <path class="cl" d="M232 108L246 98M246 92L250 78" stroke="rgba(255,190,210,.8)" stroke-width=".8"/>
+      <path transform="translate(246 96) scale(.8)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" stroke="#ffb3c6" stroke-width="1.6" fill="rgba(255,150,180,.25)"/>
+      <path transform="translate(250 74) scale(.6)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" stroke="#ffb3c6" stroke-width="1.8" fill="rgba(255,150,180,.25)"/>
+      <!-- stars -->
+      <g class="sp"><circle cx="238" cy="16" r="12" fill="url(#sh)" stroke="none"/><path d="M238 4L240 14L250 16L240 18L238 28L236 18L226 16L236 14Z" fill="#fff" stroke="none"/></g>
+      <g fill="#fff" stroke="none">
+        <circle class="sp" cx="20" cy="20" r="1.2"/><circle class="sp" style="animation-delay:-.6s" cx="46" cy="52" r="1"/><circle class="sp" style="animation-delay:-1.2s" cx="176" cy="10" r="1.2"/>
+        <circle class="sp" style="animation-delay:-1.8s" cx="198" cy="104" r="1"/><circle class="sp" style="animation-delay:-.3s" cx="170" cy="130" r="1.2"/><circle class="sp" style="animation-delay:-2s" cx="26" cy="150" r="1"/>
+        <circle class="sp" style="animation-delay:-.9s" cx="250" cy="146" r="1.2"/><circle class="sp" style="animation-delay:-1.5s" cx="126" cy="10" r="1"/>
+      </g>
+    </svg>
     <div class="crys"><i class="rg"></i><i class="rg r2"></i><i class="dia"></i></div>
   </div>
   <div class="L bg-heal" data-f="s4"></div>
@@ -223,26 +312,6 @@ function build(){
   $('fieldsvg').setAttribute('viewBox','0 0 '+w+' 120');
   $('fieldsvg').innerHTML=d+'<g class="gs">'+g1+'</g>'+f+'<g class="gs g2">'+g2+'</g><g class="gs g3">'+g3+'</g>';
 }
-
-/* Cupid constellation */
-(function(){
-  var o=44,pts=[[100,32],[100,50],[100,84],[62,30],[68,60],[138,30],[132,60],[86,110],[116,104],[48,28],[34,68],[48,108],[48,68],[90,68],[8,68],[78,52]].map(function(p){return[p[0]+o,p[1]]});
-  var ln=[[0,1],[1,2],[1,3],[3,4],[4,1],[1,5],[5,6],[6,1],[2,7],[2,8],[9,10],[10,11],[9,11],[14,13],[1,15],[15,13],[15,12]];
-  var hc=[],hl=[];
-  function heart(cx,cy,s){var q=[[0,.9],[-.9,0],[-.6,-.55],[0,-.25],[.6,-.55],[.9,0]],b=hc.length;
-    q.forEach(function(p){hc.push([f1(cx+p[0]*s),f1(cy+p[1]*s)])});
-    for(var i=0;i<6;i++)hl.push([b+i,b+(i+1)%6]);return b}
-  var h1=heart(26,68,18),h2=heart(18,26,9),h3=heart(20,110,9);
-  var s='<defs><radialGradient id="sh"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient><radialGradient id="ph"><stop offset="0" stop-color="#ffd0e4" stop-opacity=".9"/><stop offset="1" stop-color="#ff7fb0" stop-opacity="0"/></radialGradient></defs>';
-  s+='<polygon points="'+hc.slice(h1,h1+6).map(function(p){return p.join(',')}).join(' ')+'" fill="rgba(255,120,170,.12)"/>';
-  ln.forEach(function(l,i){var a=pts[l[0]],b=pts[l[1]];s+='<line class="cl" style="animation-delay:-'+f1(i*.2)+'s" x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="rgba(190,225,255,.6)" stroke-width=".7"/>'});
-  hl.forEach(function(l,i){var a=hc[l[0]],b=hc[l[1]];s+='<line class="cl" style="animation-delay:-'+f1(i*.3)+'s" x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="rgba(255,170,205,.7)" stroke-width=".7"/>'});
-  var lk=[[pts[14],hc[h1+5]],[hc[h1+2],hc[h2]],[hc[h1+1],hc[h3]]];
-  lk.forEach(function(l){s+='<line class="cl" x1="'+l[0][0]+'" y1="'+l[0][1]+'" x2="'+l[1][0]+'" y2="'+l[1][1]+'" stroke="rgba(255,210,230,.5)" stroke-width=".6"/>'});
-  pts.forEach(function(p,i){s+='<circle class="sp" style="animation-delay:-'+f1(R(0,2.6))+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="'+(i<2?5:3.8)+'" fill="url(#sh)"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(i==0?1.8:1.2)+'" fill="#fff"/>'});
-  hc.forEach(function(p){s+='<circle class="sp" style="animation-delay:-'+f1(R(0,2.6))+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="3.8" fill="url(#ph)"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.1" fill="#ffe3ee"/>'});
-  $('cons').innerHTML=s;
-})();
 
 /* staff notes, plants, pink flowers */
 (function(){
