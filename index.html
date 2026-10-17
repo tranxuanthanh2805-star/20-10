@@ -35,8 +35,8 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
 .L.on .couple{opacity:1}
 .couple svg{height:100%;width:auto;animation:neon 3.5s ease-in-out infinite}
 @keyframes neon{50%{opacity:.78}}
-/* night */
-.cons{position:absolute;left:50%;bottom:24vh;width:min(92vw,560px);height:auto;aspect-ratio:260/160;transform:translateX(-50%);filter:drop-shadow(0 0 6px rgba(255,214,120,.5))}
+/* night: cupid constellation */
+.cons{position:absolute;left:50%;bottom:24vh;width:min(92vw,560px);height:auto;aspect-ratio:260/160;transform:translateX(-50%);filter:drop-shadow(0 0 5px rgba(170,210,255,.5))}
 @media (min-aspect-ratio:1/1){.cons{left:auto;right:4vw;bottom:auto;top:14vh;width:min(46vw,520px);transform:none}}
 .cf{animation:cfl 4.5s ease-in-out infinite alternate}
 @keyframes cfl{to{transform:translate(1.5px,-4px)}}
@@ -63,8 +63,11 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
 .bf path{transform-origin:12px 9px;animation:fw .45s ease-in-out infinite alternate}
 @keyframes flt{50%{transform:translate(2vmin,-3vmin) rotate(8deg)}}
 @keyframes fw{to{transform:scaleX(.55)}}
-/* smile + musical staff */
-.girl{position:absolute;right:2vmin;bottom:0;height:min(54vh,100vw)}
+/* smile: heart with N + musical staff */
+.nh{position:absolute;right:3vmin;bottom:9vh;width:min(60vw,46vh);aspect-ratio:200/190;filter:drop-shadow(0 0 16px rgba(255,80,140,.65))}
+.nh svg{width:100%;height:100%;display:block;overflow:visible;transform-origin:50% 60%;animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.07)}24%{transform:scale(1)}36%{transform:scale(1.045)}50%{transform:scale(1)}}
+.fh{position:absolute;color:#ffb3cf;text-shadow:0 0 8px #ff6fa8;font-size:clamp(12px,3.2vmin,22px);opacity:0;animation:up 5s ease-out infinite;font-family:"Segoe UI Symbol","Apple Symbols",sans-serif}
 .pf{position:absolute;right:0;bottom:2vh;width:34vmin}
 .dood{position:absolute;left:3vmin;top:70%;width:20vmin;opacity:.7}
 .rec{position:absolute;left:3vmin;top:55%;width:42vmin}
@@ -112,28 +115,23 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
   <div class="L" data-f="s2">
     <!-- Umbrella couple (neon outline only) - placed BEFORE the grass so the grass hides their feet -->
     <div class="couple"><svg viewBox="0 0 200 300" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
-      <!-- dark soft fills (no outline) -->
       <path d="M34 66C44 8 176 8 186 66Q167 77 148 66Q129 77 110 66Q91 77 72 66Q53 77 34 66Z" fill="rgba(60,5,20,.45)" stroke="none"/>
       <path d="M62 300L64 174C60 152 62 142 74 137L108 137C120 142 120 152 116 174L116 300Z" fill="rgba(8,4,8,.6)" stroke="none"/>
       <path d="M122 300L118 182C114 160 116 148 128 142L144 142C156 148 154 162 152 182L176 300Z" fill="rgba(8,4,8,.6)" stroke="none"/>
-      <!-- umbrella -->
       <path d="M34 66C44 8 176 8 186 66" stroke="#ff4d6d"/>
       <path d="M34 66Q53 77 72 66Q91 77 110 66Q129 77 148 66Q167 77 186 66" stroke="#ffe8ee" stroke-width="1.8"/>
       <path d="M110 22V13" stroke="#ff4d6d"/>
       <path d="M110 66V104" stroke="#ffd3dc" stroke-width="1.8"/>
-      <!-- man -->
       <g stroke="#fff0e0">
         <circle cx="90" cy="114" r="12"/>
         <path d="M78 112C78 100 92 98 100 106" stroke-width="1.8"/>
         <path d="M62 300L64 174C60 152 62 142 74 137L86 132M96 132L108 137C120 142 120 152 116 174L116 300"/>
         <path d="M104 142Q116 124 110 104" stroke-width="1.8"/>
       </g>
-      <!-- bag -->
       <g stroke="#ff4d6d">
         <ellipse cx="50" cy="196" rx="11" ry="15" transform="rotate(8 50 196)"/>
         <path d="M70 140Q50 170 46 182" stroke-width="1.6"/>
       </g>
-      <!-- woman -->
       <g stroke="#ff4d6d">
         <circle cx="127" cy="121" r="10.5"/>
         <path d="M117 116C115 100 135 96 139 112C145 132 143 156 135 178"/>
@@ -144,73 +142,7 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
   </div>
   <div class="L bg-night" data-f="s3"></div>
   <div class="L" data-f="s3">
-    <!-- Cupid -->
-    <svg class="cons" viewBox="0 0 260 160" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <defs>
-        <radialGradient id="hg"><stop offset="0" stop-color="#ffb0a8" stop-opacity=".9"/><stop offset="1" stop-color="#ff7f8f" stop-opacity="0"/></radialGradient>
-        <linearGradient id="hf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a9a"/><stop offset="1" stop-color="#ff5f7e"/></linearGradient>
-        <linearGradient id="rb" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffe9a0" stop-opacity=".15"/><stop offset=".5" stop-color="#ffd86a"/><stop offset="1" stop-color="#fff6cf"/></linearGradient>
-        <radialGradient id="sh"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient>
-      </defs>
-      <!-- sparkle ribbons -->
-      <path d="M6 66C-2 26 42 2 86 16" stroke="#ffd86a" stroke-width="5" opacity=".18"/>
-      <path d="M6 66C-2 26 42 2 86 16" stroke="url(#rb)" stroke-width="1.8"/>
-      <path class="cl" d="M6 66C-2 26 42 2 86 16" stroke="#fff" stroke-width=".8"/>
-      <path d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="#ffd86a" stroke-width="5" opacity=".18"/>
-      <path d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="url(#rb)" stroke-width="1.8"/>
-      <path class="cl" d="M2 118C12 98 44 98 72 118C94 134 126 144 168 142" stroke="#fff" stroke-width=".8"/>
-      <!-- floating arrows -->
-      <g stroke="#ffe9b0" stroke-width="1.4">
-        <path d="M14 104L44 98M44 98L39 95M44 98L40 102M14 104L10 100M14 104L10 108M19 103L15 99M19 103L15 107"/>
-        <path d="M36 138L68 130M68 130L63 127M68 130L64 134M36 138L32 134M36 138L32 142M41 137L37 133M41 137L37 141"/>
-      </g>
-      <!-- cupid -->
-      <g class="cf">
-        <path d="M94 74C66 70 48 48 58 26C76 28 90 42 102 60Z" fill="#fff3d0" stroke="#ffd35c" stroke-width="1.6"/>
-        <path d="M62 32C72 36 84 48 92 62M60 42C72 46 82 56 90 66" stroke="#ffdc84" stroke-width="1"/>
-        <path d="M100 66C92 54 90 40 98 32C106 40 108 54 106 64Z" fill="#fff8e2" stroke="#ffd35c" stroke-width="1.4"/>
-        <g stroke="#e6a77c" stroke-width="11"><polyline points="98,100 70,108 58,124"/><polyline points="108,102 86,118 80,136"/></g>
-        <g stroke="#ffd9bb" stroke-width="8.6"><polyline points="98,100 70,108 58,124"/><polyline points="108,102 86,118 80,136"/></g>
-        <circle cx="58" cy="126" r="5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
-        <circle cx="80" cy="138" r="5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
-        <path d="M104 64C92 72 88 88 92 102L118 106C124 90 122 74 118 62Z" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
-        <path d="M90 96C100 90 120 92 126 102C122 114 104 116 90 108Z" fill="#fff0b8" stroke="#ffd35c" stroke-width="1.4"/>
-        <path d="M90 104C74 108 62 98 50 106" stroke="#ffe9a0" stroke-width="3"/>
-        <path d="M114 70L180 62" stroke="#e6a77c" stroke-width="9"/><path d="M114 70L180 62" stroke="#ffd9bb" stroke-width="7"/>
-        <polyline points="102,76 116,88 136,68" stroke="#e6a77c" stroke-width="8.5"/><polyline points="102,76 116,88 136,68" stroke="#ffd9bb" stroke-width="6.5"/>
-        <circle cx="112" cy="52" r="15" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1.2"/>
-        <g fill="#ffc84a" stroke="#f0a830" stroke-width="1"><circle cx="101" cy="41" r="7"/><circle cx="111" cy="36" r="7.5"/><circle cx="122" cy="39" r="6.5"/><circle cx="96" cy="48" r="5.5"/><circle cx="99" cy="55" r="4.5"/></g>
-        <path d="M118 51q3 -3 6 0" stroke="#7a4a2a" stroke-width="1.6"/>
-        <path d="M118 60q4 4 8 0" stroke="#c4604a" stroke-width="1.4"/>
-        <ellipse cx="117" cy="58" rx="3" ry="2" fill="#ff9aa0" opacity=".6" stroke="none"/>
-        <ellipse cx="94" cy="22" rx="15" ry="4.5" transform="rotate(-18 94 22)" stroke="#ffe27a" stroke-width="5" opacity=".25"/>
-        <ellipse cx="94" cy="22" rx="15" ry="4.5" transform="rotate(-18 94 22)" stroke="#ffe27a" stroke-width="2.4"/>
-        <path d="M150 16C196 34 196 90 150 108" stroke="#ffd35c" stroke-width="5" opacity=".25"/>
-        <path d="M150 16C196 34 196 90 150 108" stroke="#ffe27a" stroke-width="2.6"/>
-        <polyline points="150,16 136,66 150,108" stroke="#fff3c4" stroke-width="1"/>
-        <path d="M136 66L206 54" stroke="#fff3c4" stroke-width="1.6"/>
-        <path d="M136 66l-6 -4M136 66l-6 5M142 65l-6 -4M142 65l-6 5" stroke="#ffd35c" stroke-width="1.1"/>
-        <circle cx="182" cy="62" r="4.5" fill="#ffd9bb" stroke="#e6a77c" stroke-width="1"/>
-        <circle cx="212" cy="53" r="10" fill="url(#hg)" stroke="none" class="sp"/>
-        <path transform="translate(212 53) rotate(-80) scale(1.25)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" fill="#ff8aa0" stroke="#ffc2cc" stroke-width=".8"/>
-      </g>
-      <!-- big glowing heart + linked small hearts -->
-      <circle cx="226" cy="126" r="34" fill="url(#hg)" stroke="none" class="sp"/>
-      <path transform="translate(226 126) scale(3.2)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" fill="url(#hf)" stroke="#ffd0d0" stroke-width=".5"/>
-      <path d="M213 118q2 -6 8 -6" stroke="#fff" stroke-width="2" opacity=".7"/>
-      <path d="M186 150L246 128" stroke="#fff3c4" stroke-width="1.6"/>
-      <path d="M186 150l-6 -3M186 150l-4 5M192 148l-6 -3M192 148l-4 5M246 128l-6 -1M246 128l-3 5" stroke="#ffd35c" stroke-width="1.2"/>
-      <path class="cl" d="M232 108L246 98M246 92L250 78" stroke="rgba(255,190,210,.8)" stroke-width=".8"/>
-      <path transform="translate(246 96) scale(.8)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" stroke="#ffb3c6" stroke-width="1.6" fill="rgba(255,150,180,.25)"/>
-      <path transform="translate(250 74) scale(.6)" d="M0 6C-8 -1 -6 -8 0 -4C6 -8 8 -1 0 6Z" stroke="#ffb3c6" stroke-width="1.8" fill="rgba(255,150,180,.25)"/>
-      <!-- stars -->
-      <g class="sp"><circle cx="238" cy="16" r="12" fill="url(#sh)" stroke="none"/><path d="M238 4L240 14L250 16L240 18L238 28L236 18L226 16L236 14Z" fill="#fff" stroke="none"/></g>
-      <g fill="#fff" stroke="none">
-        <circle class="sp" cx="20" cy="20" r="1.2"/><circle class="sp" style="animation-delay:-.6s" cx="46" cy="52" r="1"/><circle class="sp" style="animation-delay:-1.2s" cx="176" cy="10" r="1.2"/>
-        <circle class="sp" style="animation-delay:-1.8s" cx="198" cy="104" r="1"/><circle class="sp" style="animation-delay:-.3s" cx="170" cy="130" r="1.2"/><circle class="sp" style="animation-delay:-2s" cx="26" cy="150" r="1"/>
-        <circle class="sp" style="animation-delay:-.9s" cx="250" cy="146" r="1.2"/><circle class="sp" style="animation-delay:-1.5s" cx="126" cy="10" r="1"/>
-      </g>
-    </svg>
+    <svg class="cons" id="cons" viewBox="0 0 260 160" preserveAspectRatio="xMidYMid meet"></svg>
     <div class="crys"><i class="rg"></i><i class="rg r2"></i><i class="dia"></i></div>
   </div>
   <div class="L bg-heal" data-f="s4"></div>
@@ -241,17 +173,24 @@ html,body{height:100%;overflow:hidden;background:#000;color:#fff;font-family:"Co
       <path d="M45 40c-8-12-26-4-18 12 5 10 18 18 18 18s13-8 18-18c8-16-10-24-18-12z"/>
       <path d="M12 85C20 60 30 50 52 30"/><path d="M70 18l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
     </svg>
-    <svg class="girl" viewBox="0 0 200 340">
-      <path d="M100 20C40 20 30 90 35 180C38 230 20 280 40 330L160 330C180 280 162 230 165 180C170 90 160 20 100 20Z" fill="#241326"/>
-      <path d="M62 150L138 150L170 330L30 330Z" fill="#b24a67"/>
-      <path d="M85 150L100 188L115 150Z" fill="#f4e8ee"/><path d="M96 170L104 170L100 200Z" fill="#3a1f2c"/>
-      <ellipse cx="100" cy="92" rx="38" ry="42" fill="#f7e1d7"/>
-      <path d="M60 88C66 44 134 44 140 88C122 68 78 68 60 88Z" fill="#241326"/>
-      <path d="M78 94Q86 84 94 94M106 94Q114 84 122 94" stroke="#3a2230" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M86 108Q100 132 114 108Z" fill="#b8404f"/>
-      <ellipse cx="74" cy="108" rx="7" ry="4" fill="#ffb3c4" opacity=".7"/><ellipse cx="126" cy="108" rx="7" ry="4" fill="#ffb3c4" opacity=".7"/>
-      <ellipse cx="64" cy="128" rx="11" ry="9" fill="#f7e1d7"/>
-    </svg>
+    <!-- Heart with the letter N -->
+    <div class="nh">
+      <svg viewBox="0 0 200 190">
+        <defs>
+          <linearGradient id="nhg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fb4"/><stop offset=".55" stop-color="#e8396f"/><stop offset="1" stop-color="#a81650"/></linearGradient>
+          <radialGradient id="nhi" cx=".35" cy=".25" r=".65"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <path d="M100 178C20 118 -4 70 28 36C52 12 88 22 100 52C112 22 148 12 172 36C204 70 180 118 100 178Z" fill="url(#nhg)" stroke="#ffd0e0" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M100 178C20 118 -4 70 28 36C52 12 88 22 100 52C112 22 148 12 172 36C204 70 180 118 100 178Z" fill="url(#nhi)"/>
+        <path d="M44 56C50 42 68 36 82 46" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55" fill="none"/>
+        <text x="100" y="118" text-anchor="middle" font-size="92" font-weight="700" font-family="Georgia,'Times New Roman',serif" fill="none" stroke="#ffd0e4" stroke-width="10" stroke-linejoin="round" opacity=".28">N</text>
+        <text x="100" y="118" text-anchor="middle" font-size="92" font-weight="700" font-family="Georgia,'Times New Roman',serif" fill="#fff">N</text>
+        <path class="sp" transform="translate(12 30)" d="M0 -7L2 -2L7 0L2 2L0 7L-2 2L-7 0L-2 -2Z" fill="#fff"/>
+        <path class="sp" style="animation-delay:-1s" transform="translate(190 20)" d="M0 -7L2 -2L7 0L2 2L0 7L-2 2L-7 0L-2 -2Z" fill="#fff"/>
+        <path class="sp" style="animation-delay:-1.8s" transform="translate(178 150)" d="M0 -6L1.8 -1.8L6 0L1.8 1.8L0 6L-1.8 1.8L-6 0L-1.8 -1.8Z" fill="#ffe3ee"/>
+      </svg>
+      <b class="fh" style="left:12%;bottom:70%">♥</b><b class="fh" style="left:50%;bottom:92%;animation-delay:-1.8s">♥</b><b class="fh" style="left:84%;bottom:68%;animation-delay:-3.2s">♥</b>
+    </div>
     <div class="rec">
       <b class="fn" style="left:18%">♪</b><b class="fn" style="left:40%;animation-delay:-1.7s">♫</b><b class="fn" style="left:62%;animation-delay:-3.1s">♪</b><b class="fn" style="left:82%;animation-delay:-.8s">♬</b>
       <svg class="staff" viewBox="0 0 220 90" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -312,6 +251,58 @@ function build(){
   $('fieldsvg').setAttribute('viewBox','0 0 '+w+' 120');
   $('fieldsvg').innerHTML=d+'<g class="gs">'+g1+'</g>'+f+'<g class="gs g2">'+g2+'</g><g class="gs g3">'+g3+'</g>';
 }
+
+/* Cupid drawn as a constellation: stars joined by shimmering lines */
+(function(){
+  function H(x,y,s){return [[x,y+s],[x-s,y],[x-s*1.1,y-s*.6],[x-s*.5,y-s],[x,y-s*.45],[x+s*.5,y-s],[x+s*1.1,y-s*.6],[x+s,y],[x,y+s]].map(function(p){return[f1(p[0]),f1(p[1])]})}
+  var B='rgba(205,230,255,.85)',Y='rgba(255,226,122,.95)',K='rgba(255,165,200,.9)',BH=H(226,128,15);
+  var G=[
+    [B,[[100,44],[112,35],[125,44],[125,60],[112,69],[100,60],[100,44]]],           /* head */
+    [B,[[100,44],[95,37],[101,31],[109,33]]],                                         /* curls */
+    [B,[[125,44],[130,38]]],
+    [Y,[[113.3,19.7],[107.9,25.5],[94.5,29.9],[86.7,28.3],[92.1,22.5],[105.5,18.1],[113.3,19.7]]], /* halo */
+    [B,[[104,76],[112,72],[122,74]]],                                                 /* shoulders */
+    [B,[[112,69],[112,72],[108,86],[106,100]]],                                       /* spine */
+    [B,[[104,76],[99,90],[98,99]]],
+    [B,[[122,74],[127,88],[128,94]]],
+    [Y,[[98,99],[106,101],[118,101],[128,94]]],                                       /* loincloth */
+    [B,[[106,101],[82,108],[62,124]]],                                                /* legs */
+    [B,[[116,102],[96,120],[84,138]]],
+    [B,[[122,74],[146,70],[182,62]]],                                                 /* arms */
+    [B,[[106,78],[118,90],[136,68]]],
+    [Y,[[150,16],[172,24],[188,44],[190,66],[180,92],[150,108]]],                     /* bow */
+    [B,[[150,16],[136,68],[150,108]]],                                                /* string */
+    [Y,[[136,68],[172,60],[205,54]]],                                                 /* arrow */
+    [Y,[[136,68],[128,63]]],[Y,[[136,68],[128,73]]],[Y,[[143,66],[135,61]]],
+    [Y,[[104,68],[80,70],[60,50],[56,28],[78,36],[98,56],[104,68]]],                  /* wings */
+    [Y,[[108,64],[100,46],[106,32],[112,50]]],
+    [K,H(212,53,5)],                                                                  /* heart tip */
+    [K,[[216,57],[246,88]]],
+    [K,H(250,94,6)],[K,H(252,72,4)],[K,[[250,88],[252,76]]],                          /* little hearts */
+    [K,BH],                                                                           /* big heart */
+    [Y,[[186,152],[246,128]]],[Y,[[186,152],[179,149]]],[Y,[[186,152],[181,158]]],[Y,[[192,150],[185,147]]],
+    [B,[[14,106],[44,100]]],[B,[[14,106],[9,102]]],[B,[[14,106],[9,110]]],[B,[[44,100],[39,97]]],[B,[[44,100],[40,104]]]
+  ];
+  var s='<defs>'
+   +'<radialGradient id="sh"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient>'
+   +'<radialGradient id="ph"><stop offset="0" stop-color="#ffd0e4" stop-opacity=".9"/><stop offset="1" stop-color="#ff7fb0" stop-opacity="0"/></radialGradient>'
+   +'<radialGradient id="hg"><stop offset="0" stop-color="#ffb0a8" stop-opacity=".8"/><stop offset="1" stop-color="#ff7f8f" stop-opacity="0"/></radialGradient>'
+   +'<linearGradient id="rb" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffe9a0" stop-opacity=".15"/><stop offset=".5" stop-color="#ffd86a"/><stop offset="1" stop-color="#fff6cf"/></linearGradient></defs>';
+  ['M6 66C-2 26 42 2 86 16','M2 118C12 98 44 98 72 118C94 134 126 144 168 142'].forEach(function(d){
+    s+='<path d="'+d+'" stroke="#ffd86a" stroke-width="5" opacity=".15" fill="none"/><path d="'+d+'" stroke="url(#rb)" stroke-width="1.6" fill="none"/><path class="cl" d="'+d+'" stroke="#fff" stroke-width=".7" fill="none"/>'});
+  var seen={},nodes='',lines='';
+  G.forEach(function(g,i){
+    lines+='<path class="cl" style="animation-delay:-'+f1(R(0,3))+'s" d="M'+g[1].map(function(p){return p[0]+' '+p[1]}).join('L')+'" stroke="'+g[0]+'" stroke-width=".8" fill="none"/>';
+    g[1].forEach(function(p){var k=p[0]+','+p[1];if(seen[k])return;seen[k]=1;
+      nodes+='<circle class="sp" style="animation-delay:-'+f1(R(0,2.6))+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="3.4" fill="url(#'+(g[0]==K?'ph':'sh')+')"/><circle cx="'+p[0]+'" cy="'+p[1]+'" r="1" fill="#fff"/>'});
+  });
+  s+='<g class="cf"><polygon points="'+BH.map(function(p){return p.join(',')}).join(' ')+'" fill="rgba(255,120,170,.16)"/>'
+   +'<circle class="sp" cx="226" cy="126" r="34" fill="url(#hg)"/>'+lines+nodes+'</g>';
+  s+='<g class="sp"><circle cx="238" cy="14" r="12" fill="url(#sh)"/><path d="M238 3L240 12L249 14L240 16L238 25L236 16L227 14L236 12Z" fill="#fff"/></g>';
+  [[20,20],[46,52],[176,10],[198,104],[170,130],[26,150],[250,146],[126,10]].forEach(function(p,i){
+    s+='<circle class="sp" style="animation-delay:-'+f1(i*.4)+'s" cx="'+p[0]+'" cy="'+p[1]+'" r="1.1" fill="#fff"/>'});
+  $('cons').innerHTML=s;
+})();
 
 /* staff notes, plants, pink flowers */
 (function(){
